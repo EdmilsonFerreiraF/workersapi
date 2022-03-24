@@ -4,8 +4,10 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
-import com.edmilson.workersapi.enums.Role;
+import com.edmilson.workersapi.enums.RoleType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,8 +20,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Worker extends Person {
+    @Column(nullable = false)
     private Long salary;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private RoleType role;
 }
